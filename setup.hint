@@ -1,5 +1,5 @@
-category: Devel
-requires: OpenSP openjade perl docbook-xml412 docbook-xsl
+category: Devel Doc
+requires: libxslt OpenSP openjade perl docbook-xml412 docbook-xsl
 sdesc: "GTK+ DocBook Documentation Generator"
 ldesc: "GTK-Doc is used to document C code. It is typically used to
 document the public API of libraries, such as the GTK+ and Gnome
