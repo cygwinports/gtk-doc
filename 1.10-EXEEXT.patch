@@ -1,0 +1,54 @@
+--- origsrc/gtk-doc-1.10/gtkdoc-scangobj.in	2007-12-10 15:23:59.000000000 -0600
++++ src/gtk-doc-1.10/gtkdoc-scangobj.in	2008-09-26 12:48:35.904847300 -0500
+@@ -1529,6 +1529,7 @@
+ $LD = $ENV{LD} ? $ENV{LD} : $CC;
+ $CFLAGS = $ENV{CFLAGS} ? $ENV{CFLAGS} : "";
+ $LDFLAGS = $ENV{LDFLAGS} ? $ENV{LDFLAGS} : "";
++$EXEEXT = ($^O =~ /MSWin32|cygwin/) ? ".exe" : "";
+ 
+ my $o_file;
+ if ($CC =~ /libtool/) {
+@@ -1542,13 +1543,13 @@
+ system($command) == 0 or die "Compilation of scanner failed: $!\n";
+ 
+ print "gtk-doc: Linking scanner\n";
+-$command = "$LD -o $MODULE-scan $o_file $LDFLAGS";
++$command = "$LD -o $MODULE-scan$EXEEXT $o_file $LDFLAGS";
+ system($command) == 0 or die "Linking of scanner failed: $!\n";
+ 
+ print "gtk-doc: Running scanner $MODULE-scan\n";
+-system("sh -c ./$MODULE-scan") == 0 or die "Scan failed: $!\n";
++system("sh -c ./$MODULE-scan$EXEEXT") == 0 or die "Scan failed: $!\n";
+ 
+-unlink "./$MODULE-scan.c", "./$MODULE-scan.o", "./$MODULE-scan.lo", "./$MODULE-scan";
++unlink "./$MODULE-scan.c", "./$MODULE-scan.o", "./$MODULE-scan.lo", "./$MODULE-scan$EXEEXT";
+ 
+ &UpdateFileIfChanged ($old_signals_filename, $new_signals_filename, 0);
+ &UpdateFileIfChanged ($old_hierarchy_filename, $new_hierarchy_filename, 0);
+--- origsrc/gtk-doc-1.10/gtkdoc-scanobj.in	2007-02-05 10:51:22.000000000 -0600
++++ src/gtk-doc-1.10/gtkdoc-scanobj.in	2008-09-26 12:50:48.607972300 -0500
+@@ -804,6 +804,7 @@
+ $LD = $ENV{LD} ? $ENV{LD} : $CC;
+ $CFLAGS = $ENV{CFLAGS} ? $ENV{CFLAGS} : "";
+ $LDFLAGS = $ENV{LDFLAGS} ? $ENV{LDFLAGS} : "";
++$EXEEXT = ($^O =~ /MSWin32|cygwin/) ? ".exe" : "";
+ 
+ my $o_file;
+ if ($CC =~ /libtool/) {
+@@ -817,13 +818,13 @@
+ system($command) == 0 or die "Compilation of scanner failed: $!\n";
+ 
+ print "gtk-doc: Linking scanner\n";
+-$command = "$LD -o $MODULE-scan $o_file $LDFLAGS";
++$command = "$LD -o $MODULE-scan$EXEEXT $o_file $LDFLAGS";
+ system($command) == 0 or die "Linking of scanner failed: $!\n";
+ 
+ print "gtk-doc: Running scanner $MODULE-scan\n";
+-system("sh -c ./$MODULE-scan") == 0 or die "Scan failed: $!\n";
++system("sh -c ./$MODULE-scan$EXEEXT") == 0 or die "Scan failed: $!\n";
+ 
+-unlink "./$MODULE-scan.c", "./$MODULE-scan.o", "./$MODULE-scan.lo", "./$MODULE-scan";
++unlink "./$MODULE-scan.c", "./$MODULE-scan.o", "./$MODULE-scan.lo", "./$MODULE-scan$EXEEXT";
+ 
+ &UpdateFileIfChanged ($old_signals_filename, $new_signals_filename, 0);
+ &UpdateFileIfChanged ($old_hierarchy_filename, $new_hierarchy_filename, 0);

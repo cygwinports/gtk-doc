@@ -5,19 +5,25 @@ public API of libraries, such as the GTK+ and Gnome libraries. But it
 can also be used to document application code.
 
 Runtime requirements:
+  bash
+  coreutils
   docbook-xml412
   docbook-xsl
+  grep
   libxslt
   openjade
   OpenSP
-  perl  
+  perl
+  python
+  sed
 
 Build requirements:
-  cygwin-1.5.25-11
-  autoconf2.5-2.61-1
+  cygwin-1.5.25-15
+  autoconf2.5-2.62-1
   automake1.10-1.10.1-1
-  cygport-0.3.10-1
+  cygport-0.4.0-1
   gawk-3.1.6-1
+  libtool-2.2.6a-2
   make-3.81-1
   gnome-common-2.20.0-1
   sed-4.1.5-2
@@ -91,6 +97,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 1.10-2 -----
+Added EXEEXT usage for newer libtool.
 
 ----- version 1.10-1 -----
 Version bump.

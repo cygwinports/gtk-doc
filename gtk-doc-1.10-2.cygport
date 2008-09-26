@@ -2,3 +2,4 @@ inherit gnome2
 
 DESCRIPTION="GNOME API documentation tools"
 
+PATCH_URI="1.10-EXEEXT.patch"
