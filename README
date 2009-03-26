@@ -7,7 +7,7 @@ can also be used to document application code.
 Runtime requirements:
   bash
   coreutils
-  docbook-xml412
+  docbook-xml43
   docbook-xsl
   grep
   libxslt
@@ -18,15 +18,16 @@ Runtime requirements:
   sed
 
 Build requirements:
-  cygwin-1.5.25-15
-  autoconf2.5-2.63-1
-  automake1.10-1.10.1-2
-  cygport-0.4.2-1
-  gawk-3.1.6-1
-  libglib2.0-2.18.3-1
+  cygwin-1.7.0-44
+  autoconf2.5-2.63-10
+  automake1.10-1.10.1-10
+  cygport-0.9.6-1
+  gawk-3.1.6-2
+  libglib2.0-2.20.0-1
   libtool-2.2.6a-2
-  make-3.81-1
-  gnome-common-2.24.0-1
+  make-3.81-2
+  gnome-common-2.26.0-1
+  gnome-doc-utils-0.16.0-1
   sed-4.1.5-2
 
 Canonical website:
@@ -66,17 +67,16 @@ Files included in the binary package:
   /usr/bin/gtkdoc-scanobj
   /usr/bin/gtkdocize
   /usr/share/aclocal/gtk-doc.m4
-  /usr/share/doc/gtk-doc-1.11/AUTHORS
-  /usr/share/doc/gtk-doc-1.11/COPYING
-  /usr/share/doc/gtk-doc-1.11/COPYING-DOCS
-  /usr/share/doc/gtk-doc-1.11/ChangeLog
-  /usr/share/doc/gtk-doc-1.11/INSTALL
-  /usr/share/doc/gtk-doc-1.11/MAINTAINERS
-  /usr/share/doc/gtk-doc-1.11/NEWS
-  /usr/share/doc/gtk-doc-1.11/README
-  /usr/share/doc/gtk-doc-1.11/TODO
-  /usr/share/doc/gtk-doc-1.11/fdl-appendix.xml
-  /usr/share/doc/gtk-doc-1.11/gtk-doc-manual.xml
+  /usr/share/doc/gtk-doc/AUTHORS
+  /usr/share/doc/gtk-doc/COPYING
+  /usr/share/doc/gtk-doc/COPYING-DOCS
+  /usr/share/doc/gtk-doc/ChangeLog
+  /usr/share/doc/gtk-doc/MAINTAINERS
+  /usr/share/doc/gtk-doc/NEWS
+  /usr/share/doc/gtk-doc/README
+  /usr/share/doc/gtk-doc/TODO
+  /usr/share/doc/gtk-doc/fdl-appendix.xml
+  /usr/share/doc/gtk-doc/gtk-doc-manual.xml
   /usr/share/gtk-doc/data/devhelp.xsl
   /usr/share/gtk-doc/data/devhelp2.xsl
   /usr/share/gtk-doc/data/gtk-doc.dcl
@@ -99,30 +99,8 @@ Files included in the binary package:
 
 Port Notes:
 
------ version 1.11-1 -----
-Version bump.
-
------ version 1.10-2 -----
-Added EXEEXT usage for newer libtool.
-
------ version 1.10-1 -----
-Version bump.
-
------ version 1.9-1 -----
-Version bump.
-
------ version 1.8-1 -----
-Version bump.
-
------ version 1.7-1 -----
-Version bump.
-
------ version 1.5-1 -----
-Version bump.
-
------ version 1.4-1 -----
-Version bump.
-Last official release was 1.3-1 by Gerrit Haase.
+----- version 1.11-10 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:

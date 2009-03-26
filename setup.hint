@@ -1,5 +1,5 @@
 category: Devel Doc
-requires: bash coreutils docbook-xml412 docbook-xsl grep libxslt OpenSP openjade perl python sed
+requires: bash coreutils docbook-xml43 docbook-xsl grep libxslt OpenSP openjade perl python sed
 sdesc: "GTK+ DocBook Documentation Generator"
 ldesc: "GTK-Doc is used to document C code. It is typically used to
 document the public API of libraries, such as the GTK+ and Gnome

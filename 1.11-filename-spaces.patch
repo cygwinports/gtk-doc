@@ -1,0 +1,11 @@
+--- origsrc/gtk-doc-1.11/gtkdoc-common.pl.in	2008-09-10 11:17:57.000000000 -0500
++++ src/gtk-doc-1.11/gtkdoc-common.pl.in	2009-03-16 13:54:37.359375000 -0500
+@@ -51,7 +51,7 @@ sub UpdateFileIfChanged {
+     my $exit_code = 1;
+ 
+     if (-e $old_file) {
+-	`cmp -s $old_file $new_file`;
++	`cmp -s "$old_file" "$new_file"`;
+ 	$exit_code = $? >> 8;
+ #	print "   cmp exit code: $exit_code ($?)\n";
+     }
