@@ -1,0 +1,58 @@
+--- origsrc/gtk-doc-1.13/gtkdoc-scangobj.in	2009-11-29 14:34:42.000000000 -0600
++++ src/gtk-doc-1.13/gtkdoc-scangobj.in	2010-01-21 02:05:24.606426000 -0600
+@@ -1589,6 +1589,8 @@ $CFLAGS = $ENV{CFLAGS} ? $ENV{CFLAGS} : 
+ $LDFLAGS = $ENV{LDFLAGS} ? $ENV{LDFLAGS} : "";
+ $RUN = $ENV{RUN} ? $ENV{RUN} : "";
+ 
++$exeext = ($^O =~ /MSWin32|cygwin/) ? ".exe" : "";
++
+ my $o_file;
+ if ($CC =~ /libtool/) {
+   $o_file  = "$MODULE-scan.lo"
+@@ -1601,14 +1603,14 @@ $command = "$CC $CFLAGS -c -o $o_file $M
+ system($command) == 0 or die "Compilation of scanner failed: $!\n";
+ 
+ print "gtk-doc: Linking scanner\n";
+-$command = "$LD -o $MODULE-scan $o_file $LDFLAGS";
++$command = "$LD -o $MODULE-scan$exeext $o_file $LDFLAGS";
+ system($command) == 0 or die "Linking of scanner failed: $!\n";
+ 
+ print "gtk-doc: Running scanner $MODULE-scan\n";
+ # use sh -c to avoid terminating the whole run without seeing the error
+-system("sh -c \"$RUN ./$MODULE-scan\"") == 0 or die "Scan failed: $!\n";
++system("sh -c \"$RUN ./$MODULE-scan$exeext\"") == 0 or die "Scan failed: $!\n";
+ 
+-unlink "./$MODULE-scan.c", "./$MODULE-scan.o", "./$MODULE-scan.lo", "./$MODULE-scan";
++unlink "./$MODULE-scan.c", "./$MODULE-scan.o", "./$MODULE-scan.lo", "./$MODULE-scan$exeext";
+ 
+ &UpdateFileIfChanged ($old_signals_filename, $new_signals_filename, 0);
+ &UpdateFileIfChanged ($old_hierarchy_filename, $new_hierarchy_filename, 0);
+--- origsrc/gtk-doc-1.13/gtkdoc-scanobj.in	2009-04-30 13:23:49.000000000 -0500
++++ src/gtk-doc-1.13/gtkdoc-scanobj.in	2010-01-21 02:06:45.363045000 -0600
+@@ -829,6 +829,8 @@ $CFLAGS = $ENV{CFLAGS} ? $ENV{CFLAGS} : 
+ $LDFLAGS = $ENV{LDFLAGS} ? $ENV{LDFLAGS} : "";
+ $RUN = $ENV{RUN} ? $ENV{RUN} : "";
+ 
++$exeext = ($^O =~ /MSWin32|cygwin/) ? ".exe" : "";
++
+ my $o_file;
+ if ($CC =~ /libtool/) {
+   $o_file  = "$MODULE-scan.lo"
+@@ -841,14 +843,14 @@ $command = "$CC $CFLAGS -c -o $o_file $M
+ system($command) == 0 or die "Compilation of scanner failed: $!\n";
+ 
+ print "gtk-doc: Linking scanner\n";
+-$command = "$LD -o $MODULE-scan $o_file $LDFLAGS";
++$command = "$LD -o $MODULE-scan$exeext $o_file $LDFLAGS";
+ system($command) == 0 or die "Linking of scanner failed: $!\n";
+ 
+ print "gtk-doc: Running scanner $MODULE-scan\n";
+ # use sh -c to avoid terminating the whole run without seeing the error
+-system("sh -c \"$RUN ./$MODULE-scan\"") == 0 or die "Scan failed: $!\n";
++system("sh -c \"$RUN ./$MODULE-scan$exeext\"") == 0 or die "Scan failed: $!\n";
+ 
+-unlink "./$MODULE-scan.c", "./$MODULE-scan.o", "./$MODULE-scan.lo", "./$MODULE-scan";
++unlink "./$MODULE-scan.c", "./$MODULE-scan.o", "./$MODULE-scan.lo", "./$MODULE-scan$exeext";
+ 
+ &UpdateFileIfChanged ($old_signals_filename, $new_signals_filename, 0);
+ &UpdateFileIfChanged ($old_hierarchy_filename, $new_hierarchy_filename, 0);

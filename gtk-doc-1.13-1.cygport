@@ -2,7 +2,6 @@ inherit gnome2
 
 DESCRIPTION="GNOME API documentation tools"
 
-PATCH_URI="1.11-EXEEXT.patch
-           1.11-filename-spaces.patch"
+PATCH_URI="1.13-exeext.patch"
 
 DIFF_EXCLUDES="tests"
