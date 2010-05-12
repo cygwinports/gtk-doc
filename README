@@ -19,17 +19,17 @@ Runtime requirements:
   sed
 
 Build requirements:
-  cygwin-1.7.1-1
+  cygwin-1.7.5-1
   autoconf2.5-2.65-1
   automake1.11-1.11.1-1
-  cygport-0.9.80-1
+  cygport-0.9.83-1
   gawk-3.1.7-1
-  libglib2.0-2.22.2-1
+  libglib2.0-2.22.4-2
   libtool-2.2.7a-15
   make-3.81-2
   gnome-common-2.28.0-1
-  gnome-doc-utils-0.18.0-1
-  sed-4.1.5-2
+  gnome-doc-utils-0.20.1-1
+  sed-4.2.1-1
 
 Canonical website:
   http://www.gnome.org/
@@ -40,19 +40,22 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack gtk-doc-1.13-X-src.tar.bz2
+  unpack gtk-doc-1.14-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./gtk-doc-1.13-X.cygport all
+  cygport ./gtk-doc-1.14-X.cygport all
 
 This will create:
-  /usr/src/gtk-doc-1.13-X-src.tar.bz2
-  /usr/src/gtk-doc-1.13-X.tar.bz2
+  /usr/src/gtk-doc-1.14-X-src.tar.bz2
+  /usr/src/gtk-doc-1.14-X.tar.bz2
 
 -------------------------------------------
 
 Port Notes:
+
+----- version 1.14-1 -----
+Version bump for GNOME 2.30.
 
 ----- version 1.13-1 -----
 Version bump.
