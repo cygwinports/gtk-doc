@@ -2,6 +2,6 @@ inherit gnome2
 
 DESCRIPTION="GNOME API documentation tools"
 
-PATCH_URI="1.14-exeext.patch"
+PATCH_URI="1.15-exeext.patch"
 
 DIFF_EXCLUDES="tests"

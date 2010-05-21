@@ -40,21 +40,21 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack gtk-doc-1.14-X-src.tar.bz2
+  unpack gtk-doc-1.15-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./gtk-doc-1.14-X.cygport all
+  cygport ./gtk-doc-1.15-X.cygport all
 
 This will create:
-  /usr/src/gtk-doc-1.14-X-src.tar.bz2
-  /usr/src/gtk-doc-1.14-X.tar.bz2
+  /usr/src/gtk-doc-1.15-X-src.tar.bz2
+  /usr/src/gtk-doc-1.15-X.tar.bz2
 
 -------------------------------------------
 
 Port Notes:
 
------ version 1.14-1 -----
+----- version 1.15-1 -----
 Version bump for GNOME 2.30.
 
 ----- version 1.13-1 -----
