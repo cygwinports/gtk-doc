@@ -1,0 +1,10 @@
+inherit gnome2
+
+DESCRIPTION="GNOME API documentation tools"
+
+PATCH_URI="
+	mirror://portage/dev-util/${PN}/files/${P}-fixxref-vim-fixes.patch
+	1.15-exeext.patch
+"
+
+DIFF_EXCLUDES="tests"
