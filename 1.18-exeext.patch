@@ -1,6 +1,6 @@
---- origsrc/gtk-doc-1.15/gtkdoc-scangobj.in	2010-05-09 15:19:08.000000000 -0500
-+++ src/gtk-doc-1.15/gtkdoc-scangobj.in	2010-05-21 11:02:42.452194600 -0500
-@@ -104,6 +104,7 @@ my $old_prerequisites_filename = "$OUTPU
+--- origsrc/gtk-doc-1.18/gtkdoc-scangobj.in	2011-06-17 03:39:37.000000000 -0500
++++ src/gtk-doc-1.18/gtkdoc-scangobj.in	2011-09-25 20:30:43.400591500 -0500
+@@ -102,6 +102,7 @@ my $old_prerequisites_filename = "$OUTPU
  my $new_prerequisites_filename = "$OUTPUT_DIR/$MODULE.prerequisites.new";
  my $old_args_filename = "$OUTPUT_DIR/$MODULE.args";
  my $new_args_filename = "$OUTPUT_DIR/$MODULE.args.new";
@@ -8,15 +8,15 @@
  
  # write a C program to scan the types
  
-@@ -1603,15 +1604,15 @@ system("($command)") == 0 or die "Compil
- print "gtk-doc: Linking scanner\n";
+@@ -1380,15 +1381,15 @@ system("($command)") == 0 or die "Compil
+ # Linking scanner
  # FIXME: Can we turn off as-needed for the docs (or better fix it?)
  #$command = "$LD -Wl,--no-as-needed $o_file $LDFLAGS -o $MODULE-scan";
--$command = "$LD $o_file $LDFLAGS -o $MODULE-scan";
-+$command = "$LD $o_file $LDFLAGS -o $MODULE-scan$exeext";
+-$command = "$LD $stdout $o_file $LDFLAGS -o $MODULE-scan";
++$command = "$LD $stdout $o_file $LDFLAGS -o $MODULE-scan$exeext";
  system("($command)") == 0 or die "Linking of scanner failed: $!\n";
  
- print "gtk-doc: Running scanner $MODULE-scan\n";
+ # Running scanner $MODULE-scan ";
 -system("($RUN ./$MODULE-scan)") == 0 or die "Scan failed: $!\n";
 +system("($RUN ./$MODULE-scan$exeext)") == 0 or die "Scan failed: $!\n";
  
@@ -27,9 +27,9 @@
  }
  
  &UpdateFileIfChanged ($old_signals_filename, $new_signals_filename, 0);
---- origsrc/gtk-doc-1.15/gtkdoc-scanobj.in	2010-05-09 15:19:17.000000000 -0500
-+++ src/gtk-doc-1.15/gtkdoc-scanobj.in	2010-05-21 11:03:14.389021300 -0500
-@@ -86,6 +86,7 @@ my $old_hierarchy_filename = "$OUTPUT_DI
+--- origsrc/gtk-doc-1.18/gtkdoc-scanobj.in	2011-06-17 03:39:37.000000000 -0500
++++ src/gtk-doc-1.18/gtkdoc-scanobj.in	2011-09-25 20:31:21.729858300 -0500
+@@ -81,6 +81,7 @@ my $old_hierarchy_filename = "$OUTPUT_DI
  my $new_hierarchy_filename = "$OUTPUT_DIR/$MODULE.hierarchy.new";
  my $old_args_filename = "$OUTPUT_DIR/$MODULE.args";
  my $new_args_filename = "$OUTPUT_DIR/$MODULE.args.new";
@@ -37,15 +37,15 @@
  
  # write a C program to scan the types
  
-@@ -843,14 +844,14 @@ system("($command)") == 0 or die "Compil
- print "gtk-doc: Linking scanner\n";
+@@ -538,14 +539,14 @@ system("($command)") == 0 or die "Compil
+ # Linking scanner
  # FIXME: Can we turn off as-needed for the docs (or better fix it?)
  #$command = "$LD -Wl,--no-as-needed $o_file $LDFLAGS -o $MODULE-scan";
 -$command = "$LD $o_file $LDFLAGS -o $MODULE-scan";
 +$command = "$LD $o_file $LDFLAGS -o $MODULE-scan$exeext";
  system("($command)") == 0 or die "Linking of scanner failed: $!\n";
  
- print "gtk-doc: Running scanner $MODULE-scan\n";
+ # Running scanner $MODULE-scan ";
 -system("($RUN ./$MODULE-scan)") == 0 or die "Scan failed: $!\n";
 +system("($RUN ./$MODULE-scan$exeext)") == 0 or die "Scan failed: $!\n";
  
