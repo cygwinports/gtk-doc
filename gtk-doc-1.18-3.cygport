@@ -1,8 +1,0 @@
-inherit gnome2
-
-DESCRIPTION="GNOME API documentation tools"
-
-PATCH_URI="1.18-exeext.patch
-           1.18-parallel-make.patch"
-
-DIFF_EXCLUDES="tests"

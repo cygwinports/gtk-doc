@@ -1,0 +1,17 @@
+inherit gnome2
+
+NAME="gtk-doc"
+VERSION=1.18
+RELEASE=4
+CATEGORY="Devel"
+SUMMARY="GNOME API documentation tools"
+DESCRIPTION="GTK-Doc is used to document C code. It is typically used to
+document the public API of libraries, such as the GTK+ and Gnome libraries.
+But it can also be used to document application code."
+REQUIRES="dblatex docbook-dsssl docbook-xml43 docbook-xsl grep libxslt OpenSP openjade sed source-highlight"
+
+PATCH_URI="1.18-exeext.patch
+           1.18-parallel-make.patch
+           1.18-vpath.patch"
+
+DIFF_EXCLUDES="tests"

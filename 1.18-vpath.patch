@@ -1,0 +1,88 @@
+--- origsrc/gtk-doc-1.18/gtk-doc.flat.make	2012-11-14 02:53:11.743766000 -0600
++++ src/gtk-doc-1.18/gtk-doc.flat.make	2012-11-14 03:03:33.024623400 -0600
+@@ -97,6 +97,9 @@ scan-build.stamp: $(HFILE_GLOB) $(CFILE_
+ 	@_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	    _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	    case $$i in /*) ;; \
++	    *)	_source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	    esac ; \
+ 	done ; \
+ 	gtkdoc-scan --module=$(DOC_MODULE) --ignore-headers="$(IGNORE_HFILES)" $${_source_dir} $(SCAN_OPTIONS) $(EXTRA_HFILES)
+ 	@if grep -l '^..*$$' $(DOC_MODULE).types > /dev/null 2>&1 ; then \
+@@ -146,6 +149,9 @@ sgml-build.stamp: tmpl.stamp $(DOC_MODUL
+ 	@_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	    _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	    case $$i in /*) ;; \
++	    *)	_source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	    esac ; \
+ 	done ; \
+ 	gtkdoc-mkdb --module=$(DOC_MODULE) --output-format=xml --expand-content-files="$(expand_content_files)" --main-sgml-file=$(DOC_MAIN_SGML_FILE) $${_source_dir} $(MKDB_OPTIONS)
+ 	@touch sgml-build.stamp
+--- origsrc/gtk-doc-1.18/gtk-doc.make	2012-11-14 02:53:11.743766000 -0600
++++ src/gtk-doc-1.18/gtk-doc.make	2012-11-14 03:03:36.124627700 -0600
+@@ -97,6 +97,9 @@ scan-build.stamp: $(HFILE_GLOB) $(CFILE_
+ 	@_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	    _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	    case $$i in /*) ;; \
++	    *)	_source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	    esac ; \
+ 	done ; \
+ 	gtkdoc-scan --module=$(DOC_MODULE) --ignore-headers="$(IGNORE_HFILES)" $${_source_dir} $(SCAN_OPTIONS) $(EXTRA_HFILES)
+ 	@if grep -l '^..*$$' $(DOC_MODULE).types > /dev/null 2>&1 ; then \
+@@ -146,6 +149,9 @@ sgml-build.stamp: tmpl.stamp $(DOC_MODUL
+ 	@_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	    _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	    case $$i in /*) ;; \
++	    *)	_source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	    esac ; \
+ 	done ; \
+ 	gtkdoc-mkdb --module=$(DOC_MODULE) --output-format=xml --expand-content-files="$(expand_content_files)" --main-sgml-file=$(DOC_MAIN_SGML_FILE) $${_source_dir} $(MKDB_OPTIONS)
+ 	@touch sgml-build.stamp
+--- origsrc/gtk-doc-1.18/gtk-doc.notmpl-flat.make	2012-11-14 02:53:11.743766000 -0600
++++ src/gtk-doc-1.18/gtk-doc.notmpl-flat.make	2012-11-14 03:03:39.534632400 -0600
+@@ -95,6 +95,9 @@ scan-build.stamp: $(HFILE_GLOB) $(CFILE_
+ 	@_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	    _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	    case $$i in /*) ;; \
++	    *)	_source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	    esac ; \
+ 	done ; \
+ 	gtkdoc-scan --module=$(DOC_MODULE) --ignore-headers="$(IGNORE_HFILES)" $${_source_dir} $(SCAN_OPTIONS) $(EXTRA_HFILES)
+ 	@if grep -l '^..*$$' $(DOC_MODULE).types > /dev/null 2>&1 ; then \
+@@ -125,6 +128,9 @@ sgml-build.stamp: setup-build.stamp $(DO
+ 	@_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	    _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	    case $$i in /*) ;; \
++	    *)	_source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	    esac ; \
+ 	done ; \
+ 	gtkdoc-mkdb --module=$(DOC_MODULE) --output-format=xml --expand-content-files="$(expand_content_files)" --main-sgml-file=$(DOC_MAIN_SGML_FILE) $${_source_dir} $(MKDB_OPTIONS)
+ 	@touch sgml-build.stamp
+--- origsrc/gtk-doc-1.18/gtk-doc.notmpl.make	2012-11-14 02:53:11.743766000 -0600
++++ src/gtk-doc-1.18/gtk-doc.notmpl.make	2012-11-14 03:03:42.444636400 -0600
+@@ -95,6 +95,9 @@ scan-build.stamp: $(HFILE_GLOB) $(CFILE_
+ 	@_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	    _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	    case $$i in /*) ;; \
++	    *)	_source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	    esac ; \
+ 	done ; \
+ 	gtkdoc-scan --module=$(DOC_MODULE) --ignore-headers="$(IGNORE_HFILES)" $${_source_dir} $(SCAN_OPTIONS) $(EXTRA_HFILES)
+ 	@if grep -l '^..*$$' $(DOC_MODULE).types > /dev/null 2>&1 ; then \
+@@ -125,6 +128,9 @@ sgml-build.stamp: setup-build.stamp $(DO
+ 	@_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	    _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	    case $$i in /*) ;; \
++	    *)	_source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	    esac ; \
+ 	done ; \
+ 	gtkdoc-mkdb --module=$(DOC_MODULE) --output-format=xml --expand-content-files="$(expand_content_files)" --main-sgml-file=$(DOC_MAIN_SGML_FILE) $${_source_dir} $(MKDB_OPTIONS)
+ 	@touch sgml-build.stamp
