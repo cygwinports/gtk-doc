@@ -1,8 +1,8 @@
 inherit gnome2
 
 NAME="gtk-doc"
-VERSION=1.18
-RELEASE=4
+VERSION=1.19
+RELEASE=1
 CATEGORY="Devel"
 SUMMARY="GNOME API documentation tools"
 DESCRIPTION="GTK-Doc is used to document C code. It is typically used to
