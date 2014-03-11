@@ -1,0 +1,16 @@
+--- origsrc/gtk-doc-1.20/gtkdoc-scanobj.in	2013-05-31 06:51:45.000000000 -0500
++++ src/gtk-doc-1.20/gtkdoc-scanobj.in	2014-03-11 18:34:25.496398600 -0500
+@@ -564,11 +564,11 @@ system("($command)") == 0 or die "Compil
+ # Linking scanner
+ # FIXME: Can we turn off as-needed for the docs (or better fix it?)
+ #$command = "$LD -Wl,--no-as-needed $o_file $LDFLAGS -o $MODULE-scan";
+-$command = "$LD $o_file $LDFLAGS -o $MODULE-scan";
++$command = "$LD $o_file $LDFLAGS -o $MODULE-scan@EXEEXT@";
+ system("($command)") == 0 or die "Linking of scanner failed: $!\n";
+ 
+ # Running scanner $MODULE-scan ";
+-system("($RUN ./$MODULE-scan)") == 0 or die "Scan failed: $!\n";
++system("($RUN ./$MODULE-scan@EXEEXT@)") == 0 or die "Scan failed: $!\n";
+ 
+ if (!defined($ENV{"GTK_DOC_KEEP_INTERMEDIATE"})) {
+   unlink "./$MODULE-scan.c", "./$MODULE-scan.o", "./$MODULE-scan.lo", "./$MODULE-scan";

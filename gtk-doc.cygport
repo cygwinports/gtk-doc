@@ -1,7 +1,7 @@
 inherit gnome2
 
 NAME="gtk-doc"
-VERSION=1.19
+VERSION=1.20
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="GNOME API documentation tools"
@@ -10,8 +10,12 @@ document the public API of libraries, such as the GTK+ and Gnome libraries.
 But it can also be used to document application code."
 REQUIRES="dblatex docbook-dsssl docbook-xml43 docbook-xsl grep libxslt OpenSP openjade sed source-highlight"
 
-PATCH_URI="1.18-exeext.patch
-           1.18-parallel-make.patch
-           1.18-vpath.patch"
+PATCH_URI="
+	1.20-exeext.patch
+	1.18-parallel-make.patch
+	1.18-vpath.patch
+"
 
-DIFF_EXCLUDES="tests"
+ARCH=noarch
+
+DIFF_EXCLUDES="tests gtkdoc-common.pl"
