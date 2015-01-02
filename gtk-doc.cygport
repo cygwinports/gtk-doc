@@ -1,7 +1,7 @@
 inherit gnome2
 
 NAME="gtk-doc"
-VERSION=1.20
+VERSION=1.21
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="GNOME API documentation tools"
@@ -11,9 +11,8 @@ But it can also be used to document application code."
 REQUIRES="dblatex docbook-dsssl docbook-xml43 docbook-xsl grep libxslt OpenSP openjade sed source-highlight"
 
 PATCH_URI="
-	1.20-exeext.patch
 	1.18-parallel-make.patch
-	1.18-vpath.patch
+	1.21-vpath.patch
 "
 
 ARCH=noarch
