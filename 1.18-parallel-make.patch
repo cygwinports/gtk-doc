@@ -14,17 +14,3 @@ There seems to be a race condition in these make rules with parallel make
  
  .PHONY : dist-hook-local docs
 +.NOTPARALLEL:
---- origsrc/gtk-doc-1.18/gtk-doc.notmpl.make	2011-08-16 11:46:24.000000000 -0500
-+++ src/gtk-doc-1.18/gtk-doc.notmpl.make	2012-06-21 15:27:38.042879000 -0500
-@@ -254,3 +254,4 @@ dist-hook: dist-check-gtkdoc dist-hook-l
- 	@$(GTKDOC_REBASE) --online --relative --html-dir=$(distdir)/html
- 
- .PHONY : dist-hook-local docs
-+.NOTPARALLEL:
---- origsrc/gtk-doc-1.18/gtk-doc.notmpl-flat.make	2011-08-16 11:46:40.000000000 -0500
-+++ src/gtk-doc-1.18/gtk-doc.notmpl-flat.make	2012-06-21 15:27:41.248062300 -0500
-@@ -254,3 +254,4 @@ dist-hook: dist-check-gtkdoc dist-hook-l
- 	@$(GTKDOC_REBASE) --online --relative --html-dir=$(distdir)/html
- 
- .PHONY : dist-hook-local docs
-+.NOTPARALLEL:

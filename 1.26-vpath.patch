@@ -1,0 +1,48 @@
+--- origsrc/gtk-doc-1.26/gtk-doc.flat.make	2018-02-11 12:46:10.114824500 -0600
++++ src/gtk-doc-1.26/gtk-doc.flat.make	2018-02-11 12:48:56.912304500 -0600
+@@ -113,6 +113,10 @@
+ 	$(GTK_DOC_V_SCAN)_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	  _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	  case $$i in \
++	    /*) ;; \
++	    *) _source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	  esac ; \
+ 	done ; \
+ 	gtkdoc-scan --module=$(DOC_MODULE) --ignore-headers="$(IGNORE_HFILES)" $${_source_dir} $(SCAN_OPTIONS) $(EXTRA_HFILES)
+ 	$(GTK_DOC_V_INTROSPECT)if grep -l '^..*$$' $(DOC_MODULE).types > /dev/null 2>&1 ; then \
+@@ -145,6 +149,10 @@
+ 	$(GTK_DOC_V_XML)_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	  _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	  case $$i in \
++	    /*) ;; \
++	    *) _source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	  esac ; \
+ 	done ; \
+ 	gtkdoc-mkdb --module=$(DOC_MODULE) --output-format=xml --expand-content-files="$(expand_content_files)" --main-sgml-file=$(DOC_MAIN_SGML_FILE) $${_source_dir} $(MKDB_OPTIONS)
+ 	$(AM_V_at)touch sgml-build.stamp
+--- origsrc/gtk-doc-1.26/gtk-doc.make	2018-02-11 12:46:10.114824500 -0600
++++ src/gtk-doc-1.26/gtk-doc.make	2018-02-11 12:48:35.396602400 -0600
+@@ -113,6 +113,10 @@
+ 	$(GTK_DOC_V_SCAN)_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	  _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	  case $$i in \
++	    /*) ;; \
++	    *) _source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	  esac ; \
+ 	done ; \
+ 	gtkdoc-scan --module=$(DOC_MODULE) --ignore-headers="$(IGNORE_HFILES)" $${_source_dir} $(SCAN_OPTIONS) $(EXTRA_HFILES)
+ 	$(GTK_DOC_V_INTROSPECT)if grep -l '^..*$$' $(DOC_MODULE).types > /dev/null 2>&1 ; then \
+@@ -145,6 +149,10 @@
+ 	$(GTK_DOC_V_XML)_source_dir='' ; \
+ 	for i in $(DOC_SOURCE_DIR) ; do \
+ 	  _source_dir="$${_source_dir} --source-dir=$$i" ; \
++	  case $$i in \
++	    /*) ;; \
++	    *) _source_dir="$${_source_dir} --source-dir=$(srcdir)/$$i" ;; \
++	  esac ; \
+ 	done ; \
+ 	gtkdoc-mkdb --module=$(DOC_MODULE) --output-format=xml --expand-content-files="$(expand_content_files)" --main-sgml-file=$(DOC_MAIN_SGML_FILE) $${_source_dir} $(MKDB_OPTIONS)
+ 	$(AM_V_at)touch sgml-build.stamp
